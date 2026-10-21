@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import FadeIn from "@/components/FadeIn";
 import type { Photo } from "@/lib/photos";
 
 // Per-item vertical offset and width inside its column, repeating every 6 photos.
@@ -44,45 +45,18 @@ export default function ScatterGallery({ photos }: { photos: Photo[] }) {
         ))}
       </div>
 
-      <Lightbox
-        open={index >= 0}
-        index={index}
-        close={() => setIndex(-1)}
-        slides={photos.map((p) => ({ src: p.src, alt: p.alt, width: p.width, height: p.height }))}
-      />
+      <PhotoLightbox photos={photos} index={index} onClose={() => setIndex(-1)} />
     </>
   );
 }
 
-// Fades and lifts its children in the first time they scroll into view.
-function FadeIn({ children, className }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
+export function PhotoLightbox({ photos, index, onClose }: { photos: Photo[]; index: number; onClose: () => void }) {
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-out motion-reduce:transition-none ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-      } ${className ?? ""}`}
-    >
-      {children}
-    </div>
+    <Lightbox
+      open={index >= 0}
+      index={index}
+      close={onClose}
+      slides={photos.map((p) => ({ src: p.src, alt: p.alt, width: p.width, height: p.height }))}
+    />
   );
 }

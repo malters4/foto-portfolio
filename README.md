@@ -8,14 +8,26 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Layout & structure
 
-Single-page site with a "scatter" layout (inspired by joroggemans.com): monospace lowercase type, sticky header with anchor links (`work` / `about` / `contact`), and photos in a loose three-column grid with varying widths and vertical offsets that fade in on scroll. On phones photos stack in one column. Clicking a photo opens a lightbox.
+Monospace lowercase type throughout, "scatter" look inspired by joroggemans.com. Every page shares a sticky header (`projects` / `about` / `contact`) and a contact footer. Clicking any photo opens a lightbox.
 
-- `app/page.tsx` — page sections: header, intro, gallery, about, contact.
-- `components/ScatterGallery.tsx` — gallery grid, scatter pattern, fade-in, lightbox.
-- `lib/photos.ts` — photo list. Each entry needs `src`, `alt`, `category`, `width`, `height` (intrinsic pixels, so each photo keeps its aspect ratio).
-- `public/photos/` — image files. Currently placeholder SVGs; replace with real photos and update `lib/photos.ts`.
+| Route | Content |
+| --- | --- |
+| `/` | Intro, curated street + travel selection (12–15 photos), about. Loose three-column grid with varying widths and vertical offsets, fading in on scroll; one column on phones. |
+| `/projects` | Index of photo series: cover, title, year, place, photo count. Two columns, the second offset lower. |
+| `/projects/[slug]` | One series: title, place · year · camera, short text, then photos as a centred sequence (one after another, `01 / 10` counters, landscapes wider than portraits), link to the next project. |
 
-Placeholder texts still to replace: intro line, about bio, email and Instagram links in `app/page.tsx`.
+Files:
+
+- `app/layout.tsx` — fonts, global type style, shared header/footer.
+- `app/page.tsx` — home page.
+- `app/projects/page.tsx`, `app/projects/[slug]/page.tsx` — projects index and project page.
+- `components/SiteHeader.tsx`, `components/SiteFooter.tsx` — shared header and contact footer.
+- `components/ScatterGallery.tsx` — home scatter grid + shared lightbox. `components/SequenceGallery.tsx` — project-page sequence. `components/FadeIn.tsx` — scroll fade-in.
+- `lib/photos.ts` — home photo list. Each entry needs `src`, `alt`, `category` (`street` or `travel`), `width`, `height` (intrinsic pixels, so each photo keeps its aspect ratio).
+- `lib/projects.ts` — projects (`slug`, `title`, `year`, `place`, optional `camera`, `description`, `photos`). Array order = order on `/projects`; first photo = cover.
+- `public/photos/` — home images; `public/photos/projects/<slug>/` — project images. Currently placeholder SVGs; replace with real photos and update the lists.
+
+Placeholders still to replace: intro line and about bio (`app/page.tsx`), email and Instagram (`components/SiteFooter.tsx`), project year/place/description and photos (`lib/projects.ts`).
 
 ## Getting Started
 
