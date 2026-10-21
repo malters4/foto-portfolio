@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Production
+
+- **Live site:** https://foto-portfolio-one.vercel.app/
+- **Hosting:** Vercel
+- **Repository:** https://github.com/malters4/foto-portfolio
+
 ## Getting Started
 
 First, run the development server:
