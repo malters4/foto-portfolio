@@ -1,50 +1,62 @@
-import PhotoGrid from "@/components/PhotoGrid";
+import ScatterGallery from "@/components/ScatterGallery";
 import { photos } from "@/lib/photos";
+
+const linkClass = "underline-offset-4 hover:underline";
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-20 px-4 py-16 sm:gap-28 sm:px-6 sm:py-24">
-      <header className="flex flex-col gap-4">
-        <h1 className="text-3xl font-medium tracking-tight sm:text-4xl">
+    <div className="flex flex-1 flex-col font-mono text-[13px] lowercase">
+      <header className="sticky top-0 z-10 flex items-center justify-between bg-white/80 px-5 py-4 backdrop-blur md:px-8">
+        <a href="#top" className={linkClass}>
           Elena Malta
-        </h1>
-        <p className="text-neutral-500">Photography</p>
+        </a>
+        <nav className="flex gap-5">
+          <a href="#work" className={linkClass}>work</a>
+          <a href="#about" className={linkClass}>about</a>
+          <a href="#contact" className={linkClass}>contact</a>
+        </nav>
       </header>
 
-      <section aria-label="Gallery">
-        <PhotoGrid photos={photos} />
-      </section>
-
-      <section aria-label="About" className="max-w-2xl">
-        <h2 className="mb-4 text-sm font-medium tracking-wide text-neutral-400 uppercase">
-          About
-        </h2>
-        <p className="text-lg leading-relaxed text-neutral-700">
-          {/* Placeholder — replace with real bio. */}
-          A short bio goes here: who you are, what you shoot, and what draws
-          you to it.
+      <main id="top" className="flex-1 px-5 md:px-12">
+        <p className="max-w-md pt-10 leading-relaxed text-neutral-400">
+          {/* Placeholder — replace with a real one-line intro. */}
+          street, travel and portrait photography.{" "}
+          <a href="#contact" className="text-neutral-900 underline underline-offset-2">
+            get in touch.
+          </a>
         </p>
-      </section>
+
+        <section id="work" aria-label="Gallery" className="scroll-mt-20 pt-16 pb-32">
+          <ScatterGallery photos={photos} />
+        </section>
+
+        <section id="about" aria-label="About" className="max-w-md scroll-mt-20 pb-24">
+          <h2 className="mb-4 text-neutral-400">about</h2>
+          <p className="leading-relaxed text-neutral-700">
+            {/* Placeholder — replace with real bio. */}
+            a short bio goes here: who you are, what you shoot, and what draws
+            you to it.
+          </p>
+        </section>
+      </main>
 
       <footer
+        id="contact"
         aria-label="Contact"
-        className="flex flex-wrap gap-6 border-t border-neutral-200 pt-8 text-sm"
+        className="flex flex-wrap gap-6 px-5 pt-8 pb-10 md:px-12"
       >
-        <a
-          href="mailto:hello@example.com"
-          className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline"
-        >
-          Email
+        <a href="mailto:hello@example.com" className={linkClass}>
+          email
         </a>
         <a
           href="https://instagram.com/yourhandle"
           target="_blank"
           rel="noreferrer"
-          className="text-neutral-600 underline-offset-4 hover:text-neutral-900 hover:underline"
+          className={linkClass}
         >
-          Instagram
+          instagram
         </a>
       </footer>
-    </main>
+    </div>
   );
 }

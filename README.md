@@ -6,6 +6,17 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - **Hosting:** Vercel
 - **Repository:** https://github.com/malters4/foto-portfolio
 
+## Layout & structure
+
+Single-page site with a "scatter" layout (inspired by joroggemans.com): monospace lowercase type, sticky header with anchor links (`work` / `about` / `contact`), and photos in a loose three-column grid with varying widths and vertical offsets that fade in on scroll. On phones photos stack in one column. Clicking a photo opens a lightbox.
+
+- `app/page.tsx` — page sections: header, intro, gallery, about, contact.
+- `components/ScatterGallery.tsx` — gallery grid, scatter pattern, fade-in, lightbox.
+- `lib/photos.ts` — photo list. Each entry needs `src`, `alt`, `category`, `width`, `height` (intrinsic pixels, so each photo keeps its aspect ratio).
+- `public/photos/` — image files. Currently placeholder SVGs; replace with real photos and update `lib/photos.ts`.
+
+Placeholder texts still to replace: intro line, about bio, email and Instagram links in `app/page.tsx`.
+
 ## Getting Started
 
 First, run the development server:
