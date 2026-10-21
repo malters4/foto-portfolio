@@ -29,6 +29,14 @@ Files:
 
 Placeholders still to replace: intro line and about bio (`app/page.tsx`), email and Instagram (`components/SiteFooter.tsx`), project year/place/description and photos (`lib/projects.ts`).
 
+## Tests
+
+```bash
+npm test
+```
+
+Runs `lib/data.test.ts` with Vitest (v4 — v5 needs newer `@types/node`). It checks the photo and project lists: every file exists in `public/`, has `alt`, `width`, `height`; home categories are `street`/`travel`; project slugs are unique and URL-safe; no duplicate photos. Run it after adding or renaming photos. There are no browser/end-to-end tests on purpose, to keep the project light.
+
 ## Getting Started
 
 First, run the development server:
