@@ -5,6 +5,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Thin crosshair over clickable photos (class "photo-zoom"); falls back to the system zoom cursor. */
+.photo-zoom {
+  cursor: url("/cursors/cross.svg") 16 16, zoom-in;
+}
+
 /* No drag, selection or iOS long-press "Save image" on photos (see components/ImageGuard.tsx). */
 img {
   -webkit-user-drag: none;

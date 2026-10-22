@@ -7,12 +7,11 @@ export default function SiteFooter() {
       aria-label="Contact"
       className="flex flex-wrap gap-6 px-5 pt-8 pb-10 md:px-12"
     >
-      {/* Placeholders — replace with real email and Instagram handle. */}
-      <a href="mailto:hello@example.com" className={linkClass}>
+      <a href="mailto:elena.malta88@gmail.com" className={linkClass}>
         email
       </a>
       <a
-        href="https://instagram.com/yourhandle"
+        href="https://www.instagram.com/maltersmalters"
         target="_blank"
         rel="noreferrer"
         className={linkClass}

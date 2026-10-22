@@ -29,7 +29,7 @@ export default function ScatterGallery({ photos }: { photos: Photo[] }) {
             <button
               type="button"
               onClick={() => setIndex(i)}
-              className="block w-full cursor-zoom-in"
+              className="photo-zoom block w-full"
               aria-label={`Open ${photo.alt}`}
             >
               <Image

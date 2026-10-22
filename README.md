@@ -45,7 +45,7 @@ Removing a photo:
 3. Move the original out of `photos-originals/` into `photos-removed/` (gitignored, keeps it safe), or delete it. Otherwise `npm run photos` recreates the web copy.
 4. Run `npm test`. Removing a project's first photo makes the next one its cover.
 
-Placeholders still to replace: intro line and about bio (`app/page.tsx`), email and Instagram (`components/SiteFooter.tsx`), project descriptions marked `[TBD]` (`lib/projects.ts`).
+Placeholders still to replace: intro line and about bio (`app/page.tsx`), project descriptions marked `[TBD]` (`lib/projects.ts`).
 
 ## Photo protection
 
@@ -55,6 +55,8 @@ Deterrents only — a browser cannot fully stop downloads, and screenshots canno
 - `app/globals.css` disables image selection, dragging and the iOS long-press "Save image" menu.
 - The lightbox shows resized copies from the Next.js image optimizer (`/_next/image`, max 2048 px), never the original files.
 - Footer copyright notice.
+
+Hovering a photo shows a thin crosshair cursor (`public/cursors/cross.svg`, class `photo-zoom` in `app/globals.css`); browsers that cannot load it fall back to the system zoom cursor. Contact links (email, Instagram) live in `components/SiteFooter.tsx`.
 
 Files in `public/` are still reachable by direct URL, which is why only 2000 px web copies live there; full-resolution originals never leave `photos-originals/`.
 
