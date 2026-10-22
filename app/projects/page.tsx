@@ -28,9 +28,10 @@ export default function ProjectsPage() {
                   className="h-auto w-full transition-opacity group-hover:opacity-85"
                 />
                 <div className="mt-4 flex items-baseline justify-between gap-6">
-                  <h2 className="underline-offset-4 group-hover:underline">{project.title}</h2>
+                  <h2 className="normal-case underline-offset-4 group-hover:underline">{project.title}</h2>
                   <span className="shrink-0 text-neutral-400 tabular-nums">{project.year}</span>
                 </div>
+                {project.subtitle && <p className="text-neutral-500 normal-case">{project.subtitle}</p>}
                 <p className="text-neutral-400">
                   {project.place} · {project.photos.length} photos
                 </p>

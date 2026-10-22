@@ -19,6 +19,9 @@ export default function SiteFooter() {
       >
         instagram
       </a>
+      <p className="w-full text-neutral-400 normal-case">
+        © {new Date().getFullYear()} Elena Malta. All rights reserved. Photos may not be downloaded or reused without permission.
+      </p>
     </footer>
   );
 }

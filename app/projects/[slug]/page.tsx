@@ -28,7 +28,8 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       </Link>
 
       <header className="mt-10 mb-20 max-w-xl md:mb-32">
-        <h1 className="text-lg leading-snug">{project.title}</h1>
+        <h1 className="text-lg leading-snug normal-case">{project.title}</h1>
+        {project.subtitle && <p className="text-lg leading-snug text-neutral-500 normal-case">{project.subtitle}</p>}
         <p className="mt-2 text-neutral-400">
           {[project.place, project.year, project.camera].filter(Boolean).join(" · ")}
         </p>
@@ -40,7 +41,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       {next.slug !== project.slug && (
         <nav className="mt-32 flex justify-end">
           <Link href={`/projects/${next.slug}`} className="underline-offset-4 hover:underline">
-            next: {next.title} →
+            next: <span className="normal-case">{next.title}</span> →
           </Link>
         </nav>
       )}

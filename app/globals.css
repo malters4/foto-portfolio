@@ -4,3 +4,10 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+/* No drag, selection or iOS long-press "Save image" on photos (see components/ImageGuard.tsx). */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}

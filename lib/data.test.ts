@@ -42,7 +42,7 @@ describe("projects", () => {
 
   it.each(projects.map((p) => [p.slug, p]))("%s is valid", (_, project) => {
     expect(project.title.trim()).not.toBe("");
-    expect(project.year).toMatch(/^\d{4}$/);
+    expect(project.year).toMatch(/^(\d{4}|∞)$/);
     expect(project.photos.length).toBeGreaterThan(0);
     project.photos.forEach(checkPhoto);
     const srcs = project.photos.map((p) => p.src);
