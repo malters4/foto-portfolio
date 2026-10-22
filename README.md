@@ -38,6 +38,13 @@ Adding a photo:
 3. Run `npm run photos` — it writes the web copy to `public/photos/` and fills in the real size.
 4. Run `npm test`.
 
+Removing a photo:
+
+1. Delete its line from `lib/photos.ts` or `lib/projects.ts`.
+2. Delete the web copy in `public/photos/…` (otherwise it stays reachable by URL).
+3. Move the original out of `photos-originals/` into `photos-removed/` (gitignored, keeps it safe), or delete it. Otherwise `npm run photos` recreates the web copy.
+4. Run `npm test`. Removing a project's first photo makes the next one its cover.
+
 Placeholders still to replace: intro line and about bio (`app/page.tsx`), email and Instagram (`components/SiteFooter.tsx`), project descriptions marked `[TBD]` (`lib/projects.ts`).
 
 ## Photo protection

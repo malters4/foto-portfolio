@@ -42,3 +42,4 @@ next-env.d.ts
 
 # full-resolution photo originals (web copies live in public/photos)
 /photos-originals/
+/photos-removed/
