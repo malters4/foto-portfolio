@@ -4,7 +4,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Projects — Elena Malta",
+  title: "projects — elena malta",
 };
 
 export default function ProjectsPage() {

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elena Malta — Photography",
+  title: "elena malta — moments in between",
   description: "Photography portfolio of Elena Malta.",
 };
 
