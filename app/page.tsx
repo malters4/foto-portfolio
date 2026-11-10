@@ -18,11 +18,11 @@ export default function Home() {
       <section id="about" aria-label="About" className="max-w-md scroll-mt-20 pb-24">
         <h2 className="mb-4 text-neutral-400">about</h2>
         <p className="leading-relaxed text-neutral-700">
-          Photographing everyday life, fleeting moments and the little details
-          that often go unnoticed. A fan of analogue photography, slow
-          processes, unapologetic dog watching and complaining about burnt
-          coffee. Building things for the web by day, photographing whenever
-          possible.
+          Fan of analogue photography, slow processes, unapologetic dog
+          watching and complaining about burnt coffee.
+        </p>
+        <p className="mt-6 leading-relaxed text-neutral-700">
+          Building things for the web by day, photographing whenever possible.
         </p>
       </section>
     </main>
