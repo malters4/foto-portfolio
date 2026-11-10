@@ -24,7 +24,7 @@ Files:
 - `components/SiteHeader.tsx`, `components/SiteFooter.tsx` — shared header and contact footer.
 - `components/ScatterGallery.tsx` — home scatter grid + shared lightbox. `components/SequenceGallery.tsx` — project-page sequence. `components/FadeIn.tsx` — scroll fade-in.
 - `lib/photos.ts` — home photo list, in display order. Each entry: file name, `width`, `height` (intrinsic pixels after EXIF rotation, so each photo keeps its aspect ratio), `category` (`street` or `travel`), `alt` text.
-- `lib/projects.ts` — projects (`slug`, `title`, optional `subtitle`, `year` — four digits or `∞` for an open-ended series — `place`, optional `camera`, `description`, `photos`). Array order = order on `/projects`; first photo = cover.
+- `lib/projects.ts` — projects (`slug`, `title`, optional `subtitle`, `year` — four digits or `∞` for an open-ended series — `place`, optional `camera`, `description` — separate paragraphs with `\n\n` — `photos`). Array order = order on `/projects`; first photo = cover.
 - `photos-originals/` — full-resolution originals (film scans and digital JPGs). **Not in git** (`.gitignore`), so keep your own backup. Same folder layout as `public/photos/`.
 - `public/photos/` — web copies generated from the originals (long side 2000 px, EXIF rotation applied, metadata stripped): home images at the top level, project images in `projects/<slug>/`. Don't edit by hand.
 - `scripts/prepare-photos.mjs` (`npm run photos`) — regenerates every web copy from `photos-originals/` and updates the `width`/`height` of each file in `lib/photos.ts` and `lib/projects.ts`. Uses the `sharp` package bundled with Next.js.
@@ -44,8 +44,6 @@ Removing a photo:
 2. Delete the web copy in `public/photos/…` (otherwise it stays reachable by URL).
 3. Move the original out of `photos-originals/` into `photos-removed/` (gitignored, keeps it safe), or delete it. Otherwise `npm run photos` recreates the web copy.
 4. Run `npm test`. Removing a project's first photo makes the next one its cover.
-
-Placeholders still to replace: intro line and about bio (`app/page.tsx`), project descriptions marked `[TBD]` (`lib/projects.ts`).
 
 ## Photo protection
 

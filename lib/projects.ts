@@ -17,14 +17,18 @@ function inFolder(slug: string, list: [file: string, width: number, height: numb
   return list.map(([file, width, height, alt]) => ({ src: `/photos/projects/${slug}/${file}`, alt, width, height }));
 }
 
-// Order here is the order on /projects. "[TBD]" marks text still to write.
+// Order here is the order on /projects.
 export const projects: Project[] = [
   {
     slug: "panydolor",
     title: "Pan y dolor",
+    subtitle: "A field guide to heartbreak, friendship and getting by.",
     year: "2026",
     place: "Fuerteventura",
-    description: "[TBD]",
+    description:
+      "Fuerteventura, or perhaps Fuertealivio: somewhere to pause, get lost.\n\n" +
+      "Somewhere between heartbreak, calima and vermouth, there were tears, laughter and small moments of relief, shared with two familiar souls.\n\n" +
+      "A reminder that sometimes getting by is enough.",
     photos: inFolder("panydolor", [
       ["lubitel_kodak_fuerte2026_001.jpg", 1991, 2000, "Dirt road through a volcanic landscape"],
       ["lubitel_kodak_fuerte2026_003.jpg", 1980, 2000, "Two women sitting on a wall above the sea"],
@@ -45,8 +49,10 @@ export const projects: Project[] = [
     title: "Anemoia Adriatica",
     subtitle: "Geografie della distanza",
     year: "∞",
-    place: "Emilia-Romagna, Italy",
-    description: "[TBD]",
+    place: "Romagna, Italy",
+    description:
+      "An ongoing exploration of Romagna, a place that feels both familiar and distant. Having grown up connected to this landscape, I return to it with a different gaze, somewhere between memory and discovery.\n\n" +
+      "These photographs are not so much about documenting a territory as about exploring the distance that grows between us and the places we carry with us.",
     photos: inFolder("anemoia-adriatica", [
       ["canon_at-1_agfa_100_bologna_winter-2026_008.jpg", 2000, 1261, "Path between sand dunes"],
       ["canon_at-1_agfa_100_bologna_winter-2026_010.jpg", 2000, 1261, "Lone figure on an empty winter beach"],
@@ -75,7 +81,9 @@ export const projects: Project[] = [
     year: "2025",
     place: "South Korea",
     camera: "Lubitel 166, 6×6",
-    description: "[TBD]",
+    description:
+      "A journey through South Korea, seen through the square viewfinder of a Lubitel.\n\n" +
+      "A stubborn Soviet camera and a rather unpredictable way of looking at things. Capturing fragments of a place, somewhere between curiosity, chance and the occasional happy accident.",
     photos: inFolder("lubitel", [
       ["lubitel_100_kodak_2025_korea_006.jpg", 1991, 2000, "Woman with a ponytail at the steps of a temple"],
       ["lubitel_100_kodak_2025_korea_007.jpg", 1991, 2000, "Man with his hands behind his back among lanterns"],
