@@ -21,6 +21,7 @@ Files:
 - `app/layout.tsx` — fonts, global type style, shared header/footer.
 - `app/page.tsx` — home page.
 - `app/projects/page.tsx`, `app/projects/[slug]/page.tsx` — projects index and project page.
+- `app/favicon.ico` (16/32/48), `app/icon.png` (512), `app/apple-icon.png` (180) — site icon (white dog with sunglasses on black), picked up automatically by Next.js. To replace it, generate the three files again from one square image (`.ico` entries must be RGBA PNGs, or the build fails).
 - `components/SiteHeader.tsx`, `components/SiteFooter.tsx` — shared header and contact footer.
 - `components/ScatterGallery.tsx` — home scatter grid + shared lightbox. `components/SequenceGallery.tsx` — project-page sequence. `components/FadeIn.tsx` — scroll fade-in.
 - `lib/photos.ts` — home photo list, in display order. Each entry: file name, `width`, `height` (intrinsic pixels after EXIF rotation, so each photo keeps its aspect ratio), `category` (`street` or `travel`), `alt` text.

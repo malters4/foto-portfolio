@@ -21,7 +21,8 @@ export default function Home() {
           Photographing everyday life, fleeting moments and the little details
           that often go unnoticed. A fan of analogue photography, slow
           processes, unapologetic dog watching and complaining about burnt
-          coffee.
+          coffee. Building things for the web by day, photographing whenever
+          possible.
         </p>
       </section>
     </main>
