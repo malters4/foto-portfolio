@@ -97,6 +97,27 @@ export const projects: Project[] = [
       ["lubitel_kodak_tmax_100_korea_007.jpg", 1989, 2000, "Flowers behind a misted shop window"],
     ]),
   },
+  {
+    slug: "sardinia",
+    title: "Sardinia",
+    year: "2026",
+    place: "Sardinia, Italy",
+    description: "",
+    photos: inFolder("sardinia", [
+      ["sardinia_01.jpg", 1988, 2000, "Three people standing at the water's edge"],
+      ["sardinia_02.jpg", 1973, 2000, "Man reading a newspaper under an arcade"],
+      ["sardinia_03.jpg", 1997, 2000, "Striped folding chair, bag and shoes on an empty beach"],
+      ["sardinia_04.jpg", 2000, 1304, "Swimmers in a breaking wave"],
+      ["sardinia_05.jpg", 2000, 1307, "Man lying at the water's edge on a sandy beach"],
+      ["sardinia_06.jpg", 2000, 1245, "Woman sitting on the sand with a backpack and a water bottle"],
+      ["sardinia_07.jpg", 1500, 952, "Two pairs of legs in the surf"],
+      ["sardinia_08.jpg", 2000, 1291, "Small figures on the rocks of a dark cove"],
+      ["sardinia_09.jpg", 2000, 1292, "Two men sitting on rocks above a cove"],
+      ["sardinia_10.jpg", 2000, 1283, "Empty swimming pool in front of an abandoned seaside building"],
+      ["sardinia_11.jpg", 1820, 2000, "People sitting on rocks above swimmers in the sea"],
+      ["sardinia_12.jpg", 2000, 1272, "Silhouette of a hand holding playing cards against the sea"],
+    ]),
+  },
 ];
 
 export function getProject(slug: string) {

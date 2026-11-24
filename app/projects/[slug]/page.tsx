@@ -33,7 +33,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <p className="mt-2 text-neutral-400">
           {[project.place, project.year, project.camera].filter(Boolean).join(" · ")}
         </p>
-        {project.description.split("\n\n").map((paragraph, i) => (
+        {project.description.split("\n\n").filter(Boolean).map((paragraph, i) => (
           <p key={i} className="mt-6 leading-relaxed text-neutral-700">
             {paragraph}
           </p>
