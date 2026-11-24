@@ -9,6 +9,8 @@ export interface Project {
   place: string;
   camera?: string;
   description: string;
+  // Optional second-language version of the description, shown after it (e.g. Italian first, then English).
+  translation?: string;
   photos: Photo[];
 }
 
@@ -99,10 +101,16 @@ export const projects: Project[] = [
   },
   {
     slug: "sardinia",
-    title: "Sardinia",
+    title: "È colpa del rumore",
+    subtitle: "Lo spazio del silenzio",
     year: "2026",
     place: "Sardinia, Italy",
-    description: "",
+    description:
+      "Una parentesi di tempo sospeso.\n\n" +
+      "Tra la quiete del paesaggio e tutto ciò che resta in sospeso, uno spazio di contrasti: luce e ombra, quiete e inquietudine, abbandono e pensieri che restano.",
+    translation:
+      "A pause in suspended time.\n\n" +
+      "Between the stillness of the landscape and everything left unsaid, a study in contrasts: light and shadow, quiet and unease, surrender and lingering thoughts.",
     photos: inFolder("sardinia", [
       ["sardinia_01.jpg", 1988, 2000, "Three people standing at the water's edge"],
       ["sardinia_02.jpg", 1973, 2000, "Man reading a newspaper under an arcade"],

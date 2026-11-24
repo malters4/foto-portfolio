@@ -38,6 +38,15 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             {paragraph}
           </p>
         ))}
+        {project.translation && (
+          <div className="mt-10 border-t border-neutral-300 pt-4">
+            {project.translation.split("\n\n").filter(Boolean).map((paragraph, i) => (
+              <p key={i} className="mt-6 leading-relaxed text-neutral-500 first:mt-0">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        )}
       </header>
 
       <SequenceGallery photos={project.photos} />
