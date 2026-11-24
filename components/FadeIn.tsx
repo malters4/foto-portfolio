@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 
 // Fades and lifts its children in the first time they scroll into view.
-export default function FadeIn({ children, className }: { children: React.ReactNode; className?: string }) {
+export default function FadeIn({
+  children,
+  className,
+  style,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -26,6 +34,7 @@ export default function FadeIn({ children, className }: { children: React.ReactN
   return (
     <div
       ref={ref}
+      style={style}
       className={`transition-all duration-700 ease-out motion-reduce:transition-none ${
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       } ${className ?? ""}`}

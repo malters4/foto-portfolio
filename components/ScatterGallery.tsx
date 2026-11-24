@@ -7,46 +7,70 @@ import "yet-another-react-lightbox/styles.css";
 import FadeIn from "@/components/FadeIn";
 import type { Photo } from "@/lib/photos";
 
-// Per-item vertical offset and width inside its column, repeating every 6 photos.
-// Offsets only apply from md up; on phones photos stack full width.
+// Per-item width and alignment inside its column, repeating every 6 photos.
+// Only applies from md up; on phones photos stack full width.
 const pattern = [
-  "md:mt-0 md:w-[85%]",
-  "md:mt-24 md:w-[80%] md:mx-auto",
-  "md:mt-0 md:w-[95%] md:ml-auto",
-  "md:mt-16 md:w-[90%]",
-  "md:mt-32 md:w-[75%] md:mx-auto",
-  "md:mt-10 md:w-[85%] md:ml-auto",
+  { width: 0.95, className: "md:w-[95%]" },
+  { width: 0.9, className: "md:w-[90%] md:mx-auto" },
+  { width: 1, className: "md:w-full" },
+  { width: 0.92, className: "md:w-[92%] md:ml-auto" },
+  { width: 0.88, className: "md:w-[88%] md:mx-auto" },
+  { width: 0.96, className: "md:w-[96%]" },
 ];
+
+// Small top offsets on the three columns keep the scattered look.
+const columnOffsets = ["", "md:pt-10", "md:pt-5"];
+const COLUMNS = columnOffsets.length;
+
+// Masonry: each photo goes into the currently shortest column, so columns stack
+// without the gaps a row grid leaves under landscape photos.
+function toColumns(photos: Photo[]) {
+  const columns: number[][] = Array.from({ length: COLUMNS }, () => []);
+  const heights = new Array(COLUMNS).fill(0);
+  photos.forEach((photo, i) => {
+    const c = heights.indexOf(Math.min(...heights));
+    columns[c].push(i);
+    heights[c] += (photo.height / photo.width) * pattern[i % pattern.length].width + 0.1;
+  });
+  return columns;
+}
 
 export default function ScatterGallery({ photos }: { photos: Photo[] }) {
   const [index, setIndex] = useState(-1);
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-3 md:gap-y-24">
-        {photos.map((photo, i) => (
-          <FadeIn key={photo.src} className={pattern[i % pattern.length]}>
-            <button
-              type="button"
-              onClick={() => setIndex(i)}
-              className="photo-zoom block w-full"
-              aria-label={`Open ${photo.alt}`}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="h-auto w-full transition-opacity hover:opacity-85"
-              />
-            </button>
-          </FadeIn>
+      {/* On phones the columns are display:contents and `order` keeps the list order. */}
+      <div className="flex flex-col gap-12 md:flex-row md:items-start md:gap-8">
+        {toColumns(photos).map((column, c) => (
+          <div key={c} className={`contents md:flex md:min-w-0 md:flex-1 md:flex-col md:gap-12 ${columnOffsets[c]}`}>
+            {column.map((i) => (
+              <GalleryItem key={photos[i].src} photo={photos[i]} i={i} onOpen={setIndex} />
+            ))}
+          </div>
         ))}
       </div>
 
       <PhotoLightbox photos={photos} index={index} onClose={() => setIndex(-1)} />
     </>
+  );
+}
+
+function GalleryItem({ photo, i, onOpen }: { photo: Photo; i: number; onOpen: (i: number) => void }) {
+  const onClick = () => onOpen(i);
+  return (
+    <FadeIn className={pattern[i % pattern.length].className} style={{ order: i }}>
+      <button type="button" onClick={onClick} className="photo-zoom block w-full" aria-label={`Open ${photo.alt}`}>
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="h-auto w-full transition-opacity hover:opacity-85"
+        />
+      </button>
+    </FadeIn>
   );
 }
 
@@ -66,7 +90,11 @@ export function PhotoLightbox({ photos, index, onClose }: { photos: Photo[]; ind
         alt: p.alt,
         width: p.width,
         height: p.height,
-        srcSet: lightboxWidths.map((w) => ({ src: optimized(p.src, w), width: w, height: Math.round((p.height * w) / p.width) })),
+        srcSet: lightboxWidths.map((w) => ({
+          src: optimized(p.src, w),
+          width: w,
+          height: Math.round((p.height * w) / p.width),
+        })),
       }))}
     />
   );

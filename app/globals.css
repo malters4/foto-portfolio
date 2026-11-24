@@ -3,6 +3,8 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* Warm off-white page colour: softer than pure white around the photos. */
+  --color-paper: #f4f2ee;
 }
 
 /* Thin crosshair over clickable photos (class "photo-zoom"); falls back to the system zoom cursor. */

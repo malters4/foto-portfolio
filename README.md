@@ -8,11 +8,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Layout & structure
 
-Monospace lowercase type throughout, "scatter" look inspired by joroggemans.com. Every page shares a sticky header (`projects` / `about` / `contact`) and a contact footer. Clicking any photo opens a lightbox.
+Monospace lowercase type on a warm off-white background (`paper`, `#f4f2ee` in `app/globals.css`), "scatter" look inspired by joroggemans.com. Every page shares a sticky header (`projects` / `about` / `contact`) and a contact footer. Clicking any photo opens a lightbox.
 
 | Route | Content |
 | --- | --- |
-| `/` | Intro, curated street + travel selection (12–15 photos), about. Loose three-column grid with varying widths and vertical offsets, fading in on scroll; one column on phones. |
+| `/` | Intro, curated street + travel selection (12–15 photos), about. Three masonry columns (each photo goes into the shortest column, so there are no gaps under landscapes), slightly varied widths and small column offsets, fading in on scroll; one column on phones, in list order. |
 | `/projects` | Index of photo series: cover, title, year, place, photo count. Two columns, the second offset lower. |
 | `/projects/[slug]` | One series: title, place · year · camera, short text, then photos as a centred sequence (one after another, `01 / 10` counters, landscapes wider than portraits), link to the next project. |
 
@@ -24,7 +24,7 @@ Files:
 - `app/favicon.ico` (16/32/48), `app/icon.png` (512), `app/apple-icon.png` (180) — site icon (white dog with sunglasses on black), picked up automatically by Next.js. To replace it, generate the three files again from one square image (`.ico` entries must be RGBA PNGs, or the build fails).
 - `components/SiteHeader.tsx`, `components/SiteFooter.tsx` — shared header and contact footer.
 - `components/ScatterGallery.tsx` — home scatter grid + shared lightbox. `components/SequenceGallery.tsx` — project-page sequence. `components/FadeIn.tsx` — scroll fade-in.
-- `lib/photos.ts` — home photo list, in display order. Each entry: file name, `width`, `height` (intrinsic pixels after EXIF rotation, so each photo keeps its aspect ratio), `category` (`street` or `travel`), `alt` text.
+- `lib/photos.ts` — home photo list, in display order (move lines to reorder; on desktop photos fill the columns left to right). Each entry: file name, `width`, `height` (intrinsic pixels after EXIF rotation, so each photo keeps its aspect ratio), `category` (`street` or `travel`), `alt` text.
 - `lib/projects.ts` — projects (`slug`, `title`, optional `subtitle`, `year` — four digits or `∞` for an open-ended series — `place`, optional `camera`, `description` — separate paragraphs with `\n\n` — `photos`). Array order = order on `/projects`; first photo = cover.
 - `photos-originals/` — full-resolution originals (film scans and digital JPGs). **Not in git** (`.gitignore`), so keep your own backup. Same folder layout as `public/photos/`.
 - `public/photos/` — web copies generated from the originals (long side 2000 px, EXIF rotation applied, metadata stripped): home images at the top level, project images in `projects/<slug>/`. Don't edit by hand.
