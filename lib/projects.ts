@@ -28,6 +28,10 @@ export const projects: Project[] = [
     year: "2026",
     place: "Fuerteventura",
     description:
+      "Fuerteventura, o forse Fuertealivio: un posto dove fermarsi e perdersi.\n\n" +
+      "Tra maldicuore, calima e vermut, conversazioni, lacrime, risate e piccoli momenti di sollievo, in compagnia di due amici cari.\n\n" +
+      "Un promemoria: a volte, tirare avanti è già abbastanza.",
+    translation:
       "Fuerteventura, or perhaps Fuertealivio: somewhere to pause, get lost.\n\n" +
       "Somewhere between heartbreak, calima and vermouth, there were tears, laughter and small moments of relief, shared with two familiar souls.\n\n" +
       "A reminder that sometimes getting by is enough.",
@@ -53,8 +57,11 @@ export const projects: Project[] = [
     year: "∞",
     place: "Romagna, Italy",
     description:
-      "An ongoing exploration of Romagna, a place that feels both familiar and distant. Having grown up connected to this landscape, I return to it with a different gaze, somewhere between memory and discovery.\n\n" +
-      "These photographs are not so much about documenting a territory as about exploring the distance that grows between us and the places we carry with us.",
+      "Luoghi che non smettono di cambiare, ma che rimangono sempre un po' uguali.\n\n" +
+      "Esplorazione di una distanza che cresce tra noi e i luoghi che continuiamo a portare con noi.",
+    translation:
+      "Places that never stop changing, yet somehow remain much the same.\n\n" +
+      "Exploring the distance that grows between us and the places we carry with us.",
     photos: inFolder("anemoia-adriatica", [
       ["canon_at-1_agfa_100_bologna_winter-2026_008.jpg", 2000, 1261, "Path between sand dunes"],
       ["canon_at-1_agfa_100_bologna_winter-2026_010.jpg", 2000, 1261, "Lone figure on an empty winter beach"],
@@ -84,8 +91,11 @@ export const projects: Project[] = [
     place: "South Korea",
     camera: "Lubitel 166, 6×6",
     description:
-      "A journey through South Korea, seen through the square viewfinder of a Lubitel.\n\n" +
-      "A stubborn Soviet camera and a rather unpredictable way of looking at things. Capturing fragments of a place, somewhere between curiosity, chance and the occasional happy accident.",
+      "Fuga in Corea del Sud, attraverso il quadrato di una Lubitel.\n\n" +
+      "Sovietica testarda e un modo piuttosto imprevedibile di guardare le cose. Piccoli frammenti, incontri casuali, coincidenze e imprevisti.",
+    translation:
+      "A getaway to South Korea, through the square frame of a Lubitel.\n\n" +
+      "A stubborn Soviet camera and a rather unpredictable way of looking at things. Small fragments, chance encounters, coincidences and unexpected turns.",
     photos: inFolder("lubitel", [
       ["lubitel_100_kodak_2025_korea_006.jpg", 1991, 2000, "Woman with a ponytail at the steps of a temple"],
       ["lubitel_100_kodak_2025_korea_007.jpg", 1991, 2000, "Man with his hands behind his back among lanterns"],
